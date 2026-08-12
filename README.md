@@ -1,4 +1,4 @@
-<h2 align="left">Hi 👋! My name is Rahul and I'm a Software Engineer, from India</h2>
+<h2 align="left">Hi 👋! My name is Rahul Jangra also knows as RahiBladeX and I'm a Student of BCA with specilization in AI/ML, from India</h2>
 
 ###
 
