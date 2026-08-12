@@ -63,7 +63,7 @@
 
 <div align="left">
   <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rahibladex@gmail.com" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=Gmail&logo=gmail&label=&color=D14836&logoColor=white&labelColor=&style=for-the-badge" height="40" alt="gmail logo"  />
+    <img src="https://img.shields.io/static/v1?label=Gmail&message=rahibladex@gmail.com&color=D14836&logo=gmail&logoColor=white&labelColor=333333&style=for-the-badge" height="38" alt="gmail badge" />
   </a>
 </div>
 
