@@ -12,53 +12,26 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Generate GitHub Stats
+        uses: lowlighter/metrics@latest
         with:
-          node-version: 20
+          token: ${{ secrets.GITHUB_TOKEN }}
+          user: rahibladex
+          template: classic
+          base: header, activity, community, repositories
+          config_timezone: Asia/Kolkata
+          config_display: large
+          filename: stats.svg
 
-      - name: Clone and build github-readme-stats
-        run: |
-          git clone https://github.com/anuraghazra/github-readme-stats.git grs
-          cd grs
-          npm install
-
-      - name: Generate Stats SVG
-        env:
-          PAT_1: ${{ secrets.METRICS_TOKEN }}
+      - name: Move and push
         run: |
           mkdir -p dist
-          cd grs
-          node -e "
-          const { renderStatsCard } = require('./src/cards/stats-card.js');
-          const { fetchStats } = require('./src/fetchers/stats-fetcher.js');
-          const themes = require('./themes/index.js');
-          
-          (async () => {
-            try {
-              const stats = await fetchStats('rahibladex', true, true, [], true);
-              const card = renderStatsCard(stats, {
-                hide_title: false,
-                hide_rank: false,
-                show_icons: true,
-                include_all_commits: true,
-                count_private: true,
-                disable_animations: false,
-                theme: 'dracula',
-                locale: 'en',
-                hide_border: false,
-              });
-              require('fs').writeFileSync('../dist/stats.svg', card);
-              console.log('Stats SVG generated successfully');
-            } catch (e) {
-              console.error('Error:', e.message);
-              process.exit(1);
-            }
-          })();
-          "
+          if [ -f "/metrics_renders/stats.svg" ]; then
+            cp /metrics_renders/stats.svg dist/
+          elif [ -f "stats.svg" ]; then
+            cp stats.svg dist/
+          fi
+          ls -la dist/
 
       - name: Push to stats-output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
