@@ -1,0 +1,32 @@
+name: Generate Languages SVG
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate Languages Card
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            // We fetch the SVG from github-readme-stats
+            const response = await fetch('https://github-readme-stats.vercel.app/api/top-langs/?username=rahibladex&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false');
+            const svg = await response.text();
+            fs.writeFileSync('languages.svg', svg);
+
+      - name: Deploy to languages-output branch
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          target_branch: languages-output
+          build_dir: .
+          keep_history: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
