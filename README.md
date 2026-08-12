@@ -9,7 +9,7 @@
 
 ###
 
-<img align="right" height="170" style="border-radius: 18px;" src="https://avatars.githubusercontent.com/u/132987103?v=4" alt="profile photo"  />
+<img align="right" height="170" style="border-radius: 35px;" src="https://avatars.githubusercontent.com/u/132987103?v=4" alt="profile photo"  />
 
 ###
 
