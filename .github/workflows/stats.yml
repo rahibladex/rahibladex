@@ -18,7 +18,18 @@ jobs:
       - name: Fetch Stats SVG
         run: |
           mkdir -p dist
-          curl -o dist/stats.svg "https://github-readme-stats.vercel.app/api?username=rahibladex&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false"
+          # Try multiple mirrors
+          for url in \
+            "https://github-readme-stats-sigma-five.vercel.app/api?username=rahibladex&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false" \
+            "https://github-readme-stats.vercel.app/api?username=rahibladex&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false" \
+            "https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=rahibladex&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false"; do
+            curl -s -o dist/stats.svg "$url"
+            if grep -q '<svg' dist/stats.svg 2>/dev/null; then
+              echo "Successfully fetched from: $url"
+              break
+            fi
+            echo "Failed with: $url, trying next..."
+          done
 
       - name: Push to stats-output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
