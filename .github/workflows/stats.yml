@@ -12,31 +12,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Generate GitHub Stats
-        uses: lowlighter/metrics@latest
+      - uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           user: rahibladex
           template: classic
           base: header, activity, community, repositories
           config_timezone: Asia/Kolkata
-          config_display: large
           filename: stats.svg
-
-      - name: Move and push
-        run: |
-          mkdir -p dist
-          if [ -f "/metrics_renders/stats.svg" ]; then
-            cp /metrics_renders/stats.svg dist/
-          elif [ -f "stats.svg" ]; then
-            cp stats.svg dist/
-          fi
-          ls -la dist/
-
-      - name: Push to stats-output branch
-        uses: crazy-max/ghaction-github-pages@v3.1.0
-        with:
-          target_branch: stats-output
-          build_dir: dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          output_action: commit
+          committer_branch: stats-output
+          committer_message: "chore: update stats"
+          config_output: svg
