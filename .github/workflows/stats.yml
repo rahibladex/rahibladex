@@ -15,21 +15,50 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Fetch Stats SVG
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Clone and build github-readme-stats
+        run: |
+          git clone https://github.com/anuraghazra/github-readme-stats.git grs
+          cd grs
+          npm install
+
+      - name: Generate Stats SVG
+        env:
+          PAT_1: ${{ secrets.METRICS_TOKEN }}
         run: |
           mkdir -p dist
-          # Try multiple mirrors
-          for url in \
-            "https://github-readme-stats-sigma-five.vercel.app/api?username=rahibladex&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false" \
-            "https://github-readme-stats.vercel.app/api?username=rahibladex&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false" \
-            "https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=rahibladex&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false"; do
-            curl -s -o dist/stats.svg "$url"
-            if grep -q '<svg' dist/stats.svg 2>/dev/null; then
-              echo "Successfully fetched from: $url"
-              break
-            fi
-            echo "Failed with: $url, trying next..."
-          done
+          cd grs
+          node -e "
+          const { renderStatsCard } = require('./src/cards/stats-card.js');
+          const { fetchStats } = require('./src/fetchers/stats-fetcher.js');
+          const themes = require('./themes/index.js');
+          
+          (async () => {
+            try {
+              const stats = await fetchStats('rahibladex', true, true, [], true);
+              const card = renderStatsCard(stats, {
+                hide_title: false,
+                hide_rank: false,
+                show_icons: true,
+                include_all_commits: true,
+                count_private: true,
+                disable_animations: false,
+                theme: 'dracula',
+                locale: 'en',
+                hide_border: false,
+              });
+              require('fs').writeFileSync('../dist/stats.svg', card);
+              console.log('Stats SVG generated successfully');
+            } catch (e) {
+              console.error('Error:', e.message);
+              process.exit(1);
+            }
+          })();
+          "
 
       - name: Push to stats-output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
