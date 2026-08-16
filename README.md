@@ -1,17 +1,6 @@
 <h2 align="left">Hi 👋! My name is Rahul Jangra also knows as RahiBladeX and I'm a Student of BCA with specilization in AI/ML, from India</h2>
 
-###
 
-<div align="center">
-  <img src="https://github-stats-extended.vercel.app/api?username=rahibladex&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false" height="175" alt="stats graph"  />
-  <img src="https://github-stats-extended.vercel.app/api/top-langs/?username=rahibladex&locale=en&hide_title=false&layout=compact&card_width=350&langs_count=5&theme=dracula&hide_border=false" height="175" alt="languages graph"  />
-</div>
-
-###
-
-<img align="right" height="170" style="border-radius: 35px;" src="https://avatars.githubusercontent.com/u/132987103?v=4" alt="profile photo"  />
-
-###
 
 ### 💻 Languages
 <div align="left">
