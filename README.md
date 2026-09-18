@@ -49,24 +49,38 @@ Welcome to my digital workspace! I'm an **AI & ML enthusiast** and a passionate 
 
 ### 🏆 Featured Architectures
 
-| 🚀 Project | 📝 Description | 🛠️ Tech Stack |
-| :--- | :--- | :--- |
-| 🏙️ **[Cortex-City](https://github.com/rahibladex/Cortex-City)** | A cutting-edge traffic predictive digital twin simulator. | `Python` `AI/ML` `Simulation` |
-| 🎵 **[RahiTunes](https://github.com/rahibladex/RahiTunes)** | An ultra-aesthetic, free, and open-source music player. | `React` `Tailwind` `Web` |
-| 🛡️ **[AcousticGuard](https://github.com/rahibladex/AcousticGuard)** | Intelligent audio analysis and security system. | `Machine Learning` `Audio` |
-| 🌌 **[My-Portfolio](https://github.com/rahibladex/My-Portfolio)** | My personal developer portfolio with premium UI/UX. | `Next.js` `TailwindCSS` |
+<br>
+
+**[🏙️ Cortex-City](https://github.com/rahibladex/Cortex-City)**  
+> *A cutting-edge traffic predictive digital twin simulator.*  
+> <sub>`Python` • `AI/ML` • `Simulation`</sub>
+
+<br>
+
+**[🎵 RahiTunes](https://github.com/rahibladex/RahiTunes)**  
+> *An ultra-aesthetic, free, and open-source music player.*  
+> <sub>`React` • `Tailwind` • `Web`</sub>
+
+<br>
+
+**[🛡️ AcousticGuard](https://github.com/rahibladex/AcousticGuard)**  
+> *Intelligent audio analysis and security system.*  
+> <sub>`Machine Learning` • `Audio Processing`</sub>
+
+<br>
+
+**[🌌 My-Portfolio](https://github.com/rahibladex/My-Portfolio)**  
+> *My personal developer portfolio with premium UI/UX.*  
+> <sub>`Next.js` • `TailwindCSS`</sub>
+
+<br>
 
 ---
 
 ### 📈 GitHub Analytics
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=rahibladex&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117" alt="GitHub Stats" />
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=rahibladex&theme=tokyonight&hide_border=true&background=0D1117" alt="GitHub Streak" />
-</div>
-<br />
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rahibladex&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117" alt="Top Languages" />
 </div>
 
 ---
