@@ -80,7 +80,7 @@ Welcome to my digital workspace! I'm an **AI & ML enthusiast** and a passionate 
 ### 📈 GitHub Analytics
 
 <div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=rahibladex&theme=tokyonight&hide_border=true&background=0D1117" alt="GitHub Streak" />
+  <img src="https://streak-stats.demolab.com/?user=rahibladex&theme=tokyonight&hide_border=true&background=0D1117" alt="GitHub Streak" />
 </div>
 
 ---
