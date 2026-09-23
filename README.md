@@ -80,7 +80,7 @@ Welcome to my digital workspace! I'm an **AI & ML enthusiast** and a passionate 
 ### 📈 GitHub Analytics
 
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=rahibladex&theme=tokyo-night&hide_border=true&area=true" alt="GitHub Activity Graph" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=rahibladex&theme=tokyonight" alt="GitHub Stats" />
 </div>
 
 ---
